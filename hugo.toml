@@ -1,4 +1,4 @@
-baseurl      = "localhost"
+baseurl      = "http://127.0.0.1"
 title        = "My Blog"
 languageCode = "en-us"
 theme        = "hello-friend-ng"
