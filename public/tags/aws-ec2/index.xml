@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Muhammad Al Farizzi</title>
-    <link>https://blog.alfarizzi.xyz/</link>
-    <description>Recent content on Muhammad Al Farizzi</description>
+    <title>AWS EC2 on Muhammad Al Farizzi</title>
+    <link>https://blog.alfarizzi.xyz/tags/aws-ec2/</link>
+    <description>Recent content in AWS EC2 on Muhammad Al Farizzi</description>
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
     <lastBuildDate>Sat, 18 May 2024 14:31:08 +0700</lastBuildDate>
-    <atom:link href="https://blog.alfarizzi.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://blog.alfarizzi.xyz/tags/aws-ec2/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How This Blog Deployed</title>
       <link>https://blog.alfarizzi.xyz/posts/how-this-blog-deployed/</link>

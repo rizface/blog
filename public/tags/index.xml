@@ -7,6 +7,28 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Sat, 18 May 2024 14:31:08 +0700</lastBuildDate>
     <atom:link href="https://blog.alfarizzi.xyz/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AWS EC2</title>
+      <link>https://blog.alfarizzi.xyz/tags/aws-ec2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://blog.alfarizzi.xyz/tags/aws-ec2/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Nginx</title>
+      <link>https://blog.alfarizzi.xyz/tags/nginx/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://blog.alfarizzi.xyz/tags/nginx/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>SSH</title>
+      <link>https://blog.alfarizzi.xyz/tags/ssh/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://blog.alfarizzi.xyz/tags/ssh/</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>

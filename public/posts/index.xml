@@ -6,8 +6,71 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Thu, 16 May 2024 23:04:03 +0700</lastBuildDate>
+        <lastBuildDate>Sat, 18 May 2024 14:31:08 +0700</lastBuildDate>
         <atom:link href="https://blog.alfarizzi.xyz/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>How This Blog Deployed</title>
+            <link>https://blog.alfarizzi.xyz/posts/how-this-blog-deployed/</link>
+            <pubDate>Sat, 18 May 2024 14:31:08 +0700</pubDate>
+            
+            <guid>https://blog.alfarizzi.xyz/posts/how-this-blog-deployed/</guid>
+            <description>AWS EC2 This blog is deployed using aws ec2 instance. AWS EC2 instance is a web service that provides sizeable compute capicity in the clouds. instance type for ths blog is t3.micro.
+Nginx Under the hood, this blog using hugo, a website generator that produces static files (HTML, CSS, JS) for the final result. these files are served using nginx with the configuration below:
+events {} http { include mime.types; server { server_name &amp;lt;your domain&amp;gt;; location / { root &amp;lt;path to blog dir&amp;gt;/blog/public; index index.</description>
+            <content type="html"><![CDATA[<h2 id="aws-ec2">AWS EC2</h2>
+<p>This blog is deployed using aws ec2 instance. AWS EC2 instance is a web service that provides sizeable compute capicity in the clouds. instance type for ths blog is <code>t3.micro</code>.</p>
+<h2 id="nginx">Nginx</h2>
+<p>Under the hood, this blog using <code>hugo</code>, a website generator that produces static files (HTML, CSS, JS) for the final result. these files are served using <code>nginx</code> with the configuration below:</p>
+<pre tabindex="0"><code class="language-conf" data-lang="conf">events {}
+
+http {
+    include mime.types;
+
+    server {
+      server_name &lt;your domain&gt;;
+      location / {
+        root &lt;path to blog dir&gt;/blog/public;
+        index index.html index.htm;
+        try_files $uri $uri/ =404;
+      }
+  }
+}
+</code></pre><h2 id="ssh">SSH</h2>
+<p>SSH (Secure Shell) is a protocol to send command to securely sending commands to a server. Imagine line store owner ask the employee to clean/close/repair the store.</p>
+<h2 id="github-action">Github Action</h2>
+<p>Github Action is CI/CD tools that help you automate your workflows like testing, build, and deployment. this blog leverage github action for deployment processs</p>
+<h2 id="how-it-works">How it Works</h2>
+<p>When i done write some posts, i need to run <code>hugo</code> command on my local machine to produce static files then push it to github repository, deployment workflow will run automatically when some changes is pushed to master branch. Deployment script will do <code>ssh</code> to my <code>aws ec2</code> instance and pull latest changes from master branch, below is full script for deployment.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">name</span>: <span style="color:#ae81ff">Deploy</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">on</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">push</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">branches</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">master</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">jobs</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">Deploy</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Deploy</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">runs-on</span>: <span style="color:#ae81ff">ubuntu-latest</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>: <span style="color:#ae81ff">production</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions/checkout@v2 </span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Build &amp; Deploy</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">env</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">PRIVATE_KEY</span>: <span style="color:#ae81ff">${{secrets.SSH_PRIVATE_KEY}}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">HOSTNAME</span>: <span style="color:#ae81ff">${{secrets.SSH_HOST}}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">USER_NAME</span>: <span style="color:#ae81ff">${{secrets.SSH_USER_NAME}}</span>
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">run</span>: |<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          echo &#34;$PRIVATE_KEY&#34; &gt; private_key &amp;&amp; chmod 600 private_key
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} &#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">              cd blog &amp;&amp;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">              git pull origin master &amp;&amp;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">              sudo cp -r public &lt;path to blog&gt;/blog
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">              &#39;</span>          
+</span></span></code></pre></div>]]></content>
+        </item>
         
     </channel>
 </rss>
