@@ -2,16 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://127.0.0.1/</loc>
+    <loc>https://blog.alfarizzi.xyz/</loc>
     <lastmod>2024-05-16T23:04:03+07:00</lastmod>
   </url><url>
-    <loc>http://127.0.0.1/posts/</loc>
+    <loc>https://blog.alfarizzi.xyz/posts/</loc>
     <lastmod>2024-05-16T23:04:03+07:00</lastmod>
   </url><url>
-    <loc>http://127.0.0.1/blog/</loc>
+    <loc>https://blog.alfarizzi.xyz/blog/</loc>
   </url><url>
-    <loc>http://127.0.0.1/series/</loc>
+    <loc>https://blog.alfarizzi.xyz/series/</loc>
   </url><url>
-    <loc>http://127.0.0.1/tags/</loc>
+    <loc>https://blog.alfarizzi.xyz/tags/</loc>
   </url>
 </urlset>

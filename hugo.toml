@@ -1,5 +1,5 @@
-baseurl      = "http://127.0.0.1"
-title        = "My Blog"
+baseurl      = "https://blog.alfarizzi.xyz"
+title        = "Muhammad Al Farizzi"
 languageCode = "en-us"
 theme        = "hello-friend-ng"
 paginate     = 10
@@ -46,7 +46,7 @@ paginate     = 10
     copyright = '<a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a>'
 
   [languages.en.params]
-    subtitle  = "A simple theme for Hugo"
+    subtitle  = "Blog"
     keywords = ""
     readOtherPosts = "Read other posts"
     [languages.en.params.logo]
