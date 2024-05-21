@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sat, 18 May 2024 14:31:08 +0700</lastBuildDate>
+    <lastBuildDate>Tue, 21 May 2024 20:38:13 +0700</lastBuildDate>
     <atom:link href="https://blog.alfarizzi.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Nginx Notebook</title>
+      <link>https://blog.alfarizzi.xyz/posts/nginx-notebook/</link>
+      <pubDate>Tue, 21 May 2024 20:38:13 +0700</pubDate>
+      <guid>https://blog.alfarizzi.xyz/posts/nginx-notebook/</guid>
+      <description>Basic Config events {} http { server { listen 80; root /var/www/html; index index.html index.php index.htm; location / { try_files $uri $uri/ $uri?args } } } Context Events Events context is used to determine how nginx will process incoming connections, for example&#xA;how many connection will be proceed in one time ? how many worker will be used to process incoming request ? whether all incoming connections will be processed at one time ?</description>
+    </item>
     <item>
       <title>How This Blog Deployed</title>
       <link>https://blog.alfarizzi.xyz/posts/how-this-blog-deployed/</link>
