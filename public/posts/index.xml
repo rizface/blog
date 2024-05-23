@@ -1,20 +1,48 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Posts on Muhammad Al Farizzi</title>
-        <link>https://blog.alfarizzi.xyz/posts/</link>
+        <link>http://localhost:1313/posts/</link>
         <description>Recent content in Posts on Muhammad Al Farizzi</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Tue, 21 May 2024 20:38:13 +0700</lastBuildDate>
-        <atom:link href="https://blog.alfarizzi.xyz/posts/index.xml" rel="self" type="application/rss+xml" />
+        <lastBuildDate>Thu, 23 May 2024 15:17:17 +0700</lastBuildDate>
+        <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>How This Blog Migrated to Cloudflare Pages</title>
+            <link>http://localhost:1313/posts/how-this-blog-migrated-to-cloudflare-pages/</link>
+            <pubDate>Thu, 23 May 2024 15:17:17 +0700</pubDate>
+            
+            <guid>http://localhost:1313/posts/how-this-blog-migrated-to-cloudflare-pages/</guid>
+            <description>Recently i&amp;rsquo;ve learn nginx for my freelance project this provoked me to learn a little further about nginx. After learn some topics about nginx i decide to make this blog and deploy it using AWS EC2 instance and Nginx How This Blog Deployed and this cost me a lot 🥲. so i decide to move my blog to Cloudflare Pages (🎉🎉 Learn new thing). this how i do it.
+Create Cloudflare Account Before start this journey you need to register new account using your email or you can sign in using apple account.</description>
+            <content type="html"><![CDATA[<p>Recently i&rsquo;ve learn nginx for my freelance project this provoked me to learn a little further about nginx. After learn some topics about nginx i decide to make this blog and deploy it using AWS EC2 instance and Nginx <a href="https://blog.alfarizzi.xyz/posts/how-this-blog-deployed/">How This Blog Deployed</a> and this cost me a lot 🥲. so i decide to move my blog to Cloudflare Pages (🎉🎉 Learn new thing). this how i do it.</p>
+<h2 id="create-cloudflare-account">Create Cloudflare Account</h2>
+<p><img alt="Register Cloudflare" src="../images/register-cloudflare.png"></p>
+<p>Before start this journey you need to register new account using your email or you can sign in using apple account. You will received an email for email verication in your inbox.</p>
+<h2 id="create-new-application">Create New Application</h2>
+<p><img alt="Connect to Git" src="../images/connect-to-git.png"></p>
+<p>Go to <code>Workers &amp; Pages</code> &gt; <code>Pages</code> &gt; <code>Connect to Git</code> then you will be director to github/gitlab to configure the repos you that will you manage using cloudflare.</p>
+<p><img alt="Select Orgs" src="../images/select-orgs.png"></p>
+<p>then you will be redirected to page where you can create new application.</p>
+<p><img alt="Create New Application" src="../images/create-new-app.png"></p>
+<p>select repository you want to deploy, here i&rsquo;ll choose <code>blog</code> repo.
+<img alt="Choose Repo" src="../images/choose-repo.png"></p>
+<p>since this blog is built using <code>hugo</code> then choose <code>hugo</code> as framework preset and leave other option as default
+<img alt="Setting Build Configuration" src="../images/build-config.png"></p>
+<p>then click <code>Save and Deploy</code> then deployment process will be started.</p>
+<p><img alt="Deployment" src="../images/deployment.png"></p>
+<p>if deployment process you will get random generated url that pointed to your deployed project in this you also can setting custom domain/subdomain for this.</p>
+]]></content>
+        </item>
         
         <item>
             <title>Nginx Notebook</title>
-            <link>https://blog.alfarizzi.xyz/posts/nginx-notebook/</link>
+            <link>http://localhost:1313/posts/nginx-notebook/</link>
             <pubDate>Tue, 21 May 2024 20:38:13 +0700</pubDate>
             
-            <guid>https://blog.alfarizzi.xyz/posts/nginx-notebook/</guid>
+            <guid>http://localhost:1313/posts/nginx-notebook/</guid>
             <description>Basic Config events {} http { server { listen 80; root /var/www/html; index index.html index.php index.htm; location / { try_files $uri $uri/ $uri?args } } } Context Events Events context is used to determine how nginx will process incoming connections, for example
 how many connection will be proceed in one time ? how many worker will be used to process incoming request ? whether all incoming connections will be processed at one time ?</description>
             <content type="html"><![CDATA[<h1 id="basic-config">Basic Config</h1>
@@ -60,10 +88,10 @@ events {
         
         <item>
             <title>How This Blog Deployed</title>
-            <link>https://blog.alfarizzi.xyz/posts/how-this-blog-deployed/</link>
+            <link>http://localhost:1313/posts/how-this-blog-deployed/</link>
             <pubDate>Sat, 18 May 2024 14:31:08 +0700</pubDate>
             
-            <guid>https://blog.alfarizzi.xyz/posts/how-this-blog-deployed/</guid>
+            <guid>http://localhost:1313/posts/how-this-blog-deployed/</guid>
             <description>AWS EC2 This blog is deployed using aws ec2 instance. AWS EC2 instance is a web service that provides sizeable compute capicity in the clouds. instance type for ths blog is t3.micro.
 Nginx Under the hood, this blog using hugo, a website generator that produces static files (HTML, CSS, JS) for the final result. these files are served using nginx with the configuration below:
 events {} http { include mime.types; server { server_name &amp;lt;your domain&amp;gt;; location / { root &amp;lt;path to blog dir&amp;gt;/blog/public; index index.</description>
