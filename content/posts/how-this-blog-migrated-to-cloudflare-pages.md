@@ -19,7 +19,7 @@ Before start this journey you need to register new account using your email or y
 ## Create New Application
 ![Connect to Git](../images/connect-to-git.png)
 
-Go to `Workers & Pages` > `Pages` > `Connect to Git` then you will be director to github/gitlab to configure the repos you that will you manage using cloudflare.
+Go to `Workers & Pages` > `Pages` > `Connect to Git` then you will be directed to github/gitlab to configure the repos you that will you manage using cloudflare.
 
 ![Select Orgs](../images/select-orgs.png)
 
@@ -30,7 +30,7 @@ then you will be redirected to page where you can create new application.
 select repository you want to deploy, here i'll choose `blog` repo.
 ![Choose Repo](../images/choose-repo.png)
 
-since this blog is built using `hugo` then choose `hugo` as framework preset and leave other option as default
+since this blog is built using `hugo` then choose `hugo` as framework preset and leave other option as default.
 ![Setting Build Configuration](../images/build-config.png)
 
 then click `Save and Deploy` then deployment process will be started.
