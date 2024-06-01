@@ -14,7 +14,7 @@
       <link>http://localhost:1313/posts/how-this-blog-migrated-to-cloudflare-pages/</link>
       <pubDate>Thu, 23 May 2024 15:17:17 +0700</pubDate>
       <guid>http://localhost:1313/posts/how-this-blog-migrated-to-cloudflare-pages/</guid>
-      <description>Recently i&amp;rsquo;ve learn nginx for my freelance project this provoked me to learn a little further about nginx. After learn some topics about nginx i decide to make this blog and deploy it using AWS EC2 instance and Nginx How This Blog Deployed.</description>
+      <description>Recently i&amp;rsquo;ve learn nginx for my freelance project this provoked me to learn a little further about nginx. After learn some topics about nginx i decide to make this blog and deploy it using AWS EC2 instance and Nginx How This Blog Deployed and this cost me a lot 🥲. so i decide to move my blog to Cloudflare Pages (🎉🎉 Learn new thing). this how i do it.&#xA;Create Cloudflare Account Before start this journey you need to register new account using your email or you can sign in using apple account.</description>
     </item>
   </channel>
 </rss>

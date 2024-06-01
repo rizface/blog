@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Encryption on Muhammad Al Farizzi</title>
+    <link>http://localhost:1313/tags/encryption/</link>
+    <description>Recent content in Encryption on Muhammad Al Farizzi</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Sat, 01 Jun 2024 14:15:17 +0700</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/encryption/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>RSA</title>
+      <link>http://localhost:1313/posts/rsa/</link>
+      <pubDate>Sat, 01 Jun 2024 14:15:17 +0700</pubDate>
+      <guid>http://localhost:1313/posts/rsa/</guid>
+      <description>RSA (Rivest-Shamir-Adlema) is asymmetric encryption algorithm it works by encrypt plain message using public key, and descrypt using private key. public key can be shared amongs parties/services/client but the private key must be kept for server/message processor because encrypted message only can be descrypted by right pair private key. </description>
+    </item>
+  </channel>
+</rss>

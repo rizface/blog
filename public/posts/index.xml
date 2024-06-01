@@ -6,8 +6,162 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Thu, 23 May 2024 15:17:17 +0700</lastBuildDate>
+        <lastBuildDate>Sat, 01 Jun 2024 14:15:17 +0700</lastBuildDate>
         <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>RSA</title>
+            <link>http://localhost:1313/posts/rsa/</link>
+            <pubDate>Sat, 01 Jun 2024 14:15:17 +0700</pubDate>
+            
+            <guid>http://localhost:1313/posts/rsa/</guid>
+            <description>RSA (Rivest-Shamir-Adlema) is asymmetric encryption algorithm it works by encrypt plain message using public key, and decrypt using private key. public key can be shared amongs parties/services/client but the private key must be kept for server/message processor because encrypted message only can be decrypted by right pair private key, decryption will be failed if you try to decrypt message using wrong private key.
+Below is example of private and public key</description>
+            <content type="html"><![CDATA[<p>RSA (Rivest-Shamir-Adlema) is asymmetric encryption algorithm it works by encrypt plain message using public key, and decrypt using private key. public key can be shared amongs parties/services/client but the private key must be kept for server/message processor because encrypted message only can be decrypted by right pair private key, decryption will be failed if you try to decrypt message using wrong private key.</p>
+<p><img alt="RSA" src="../images/rsa.png"></p>
+<p>Below is example of private and public key</p>
+<pre tabindex="0"><code class="language-pem" data-lang="pem">-----BEGIN RSA PRIVATE KEY-----
+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
+-----END RSA PRIVATE KEY-----
+</code></pre><pre tabindex="0"><code class="language-pem" data-lang="pem">-----BEGIN RSA PUBLIC KEY-----
+MIICCgKCAgEA09r9ouQfbGtKQ8izKcADVHoKs7e3wL0qpXazidQT/qF6kgdU/GIF
++beFVn4ZoVurxt7gow7BVLulyepUS/r6XmFXViBu44WKdcOL9wAtZbTNHmLbo9SW
+y6zbsbfuJJPdA3KhTeE0HgagyTcU/icNLjqTZEDmE6B7huk/4u+TzU2AzLxvh6yW
+fTj1RDeyc6AOy8hZxB6QAOW5Vr+7VahYUzIYgFZ/vmCS9Kp7B4OblVX7O+nxEelf
+7s4NZOftwAqdLjgg4rOyVZp6m0C03IqtYAJ5L5vhEsa8GeQscJ1+Q6lQ0W6MGZ/8
+QG2hZmFtHpytq2wlUovYqs3u62VtMRqQRVxg2XuWSfV/wh4FZmH/y0EiD2PJ0GyI
+V9eGc1wsKl3fyYxTayC7CU8sfh6DD9V7dzwmXdo/ZRmWmjrjfZg8dzo9rvtegwUd
+83IqZcGaSrEjOrNyZ1ai+KRTzbT2QMQiDSJTYZjQ4ht8u93tTt3dtbDyVVUHFs9o
+qoA0J9Fuj4/Or75sP39y64Y+U9FozKfBKPdkVcvHwHuI3qhIgv2Q1/zBepLEYpLd
+yuinusfFE7mEYVzkWqDMhaCpCk87HiHZJm4XbeaaFX4wTQYIZDgP38qFO43ttqio
+j0dhDSDZrBbCTErq8cfhe2X6jsNJdd/BKjiZdM8cg0MUriohpLmhlysCAwEAAQ==
+-----END RSA PUBLIC KEY-----
+</code></pre><p>RSA can be used in any programming language, below is example using Go programming language</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;crypto/rand&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;crypto/rsa&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;crypto/sha256&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;crypto/x509&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;encoding/pem&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;log&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;os&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">generatePrivateKey</span>() (<span style="color:#f92672">*</span><span style="color:#a6e22e">rsa</span>.<span style="color:#a6e22e">PrivateKey</span>, <span style="color:#66d9ef">error</span>) {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">pk</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">rsa</span>.<span style="color:#a6e22e">GenerateKey</span>(<span style="color:#a6e22e">rand</span>.<span style="color:#a6e22e">Reader</span>, <span style="color:#ae81ff">4096</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatalf</span>(<span style="color:#e6db74">&#34;err generate pk: %w&#34;</span>, <span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">privateKeyPem</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">pem</span>.<span style="color:#a6e22e">EncodeToMemory</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">pem</span>.<span style="color:#a6e22e">Block</span>{
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">Type</span>:  <span style="color:#e6db74">&#34;RSA PRIVATE KEY&#34;</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">Bytes</span>: <span style="color:#a6e22e">x509</span>.<span style="color:#a6e22e">MarshalPKCS1PrivateKey</span>(<span style="color:#a6e22e">pk</span>),
+</span></span><span style="display:flex;"><span>	})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">err</span> = <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">WriteFile</span>(<span style="color:#e6db74">&#34;private.pem&#34;</span>, <span style="color:#a6e22e">privateKeyPem</span>, <span style="color:#ae81ff">0644</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>, <span style="color:#a6e22e">err</span>
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">pk</span>, <span style="color:#66d9ef">nil</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">generatePublicKey</span>(<span style="color:#a6e22e">priv</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">rsa</span>.<span style="color:#a6e22e">PrivateKey</span>) (<span style="color:#f92672">*</span><span style="color:#a6e22e">rsa</span>.<span style="color:#a6e22e">PublicKey</span>, <span style="color:#66d9ef">error</span>) {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">publicKeyPem</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">pem</span>.<span style="color:#a6e22e">EncodeToMemory</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">pem</span>.<span style="color:#a6e22e">Block</span>{
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">Type</span>:  <span style="color:#e6db74">&#34;RSA PUBLIC KEY&#34;</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">Bytes</span>: <span style="color:#a6e22e">x509</span>.<span style="color:#a6e22e">MarshalPKCS1PublicKey</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">priv</span>.<span style="color:#a6e22e">PublicKey</span>),
+</span></span><span style="display:flex;"><span>	})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">WriteFile</span>(<span style="color:#e6db74">&#34;public.pem&#34;</span>, <span style="color:#a6e22e">publicKeyPem</span>, <span style="color:#ae81ff">0644</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>, <span style="color:#a6e22e">err</span>
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">priv</span>.<span style="color:#a6e22e">PublicKey</span>, <span style="color:#66d9ef">nil</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">priv</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">generatePrivateKey</span>()
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatalf</span>(<span style="color:#e6db74">&#34;Err failed generate private key: %w&#34;</span>, <span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">pub</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">generatePublicKey</span>(<span style="color:#a6e22e">priv</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#e6db74">&#34;Err failed generate public key: %w&#34;</span>, <span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">msg</span> <span style="color:#f92672">:=</span> []byte(<span style="color:#e6db74">&#34;plain message&#34;</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">hash</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">sha256</span>.<span style="color:#a6e22e">New</span>()
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">rands</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">rand</span>.<span style="color:#a6e22e">Reader</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">encMsg</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">rsa</span>.<span style="color:#a6e22e">EncryptOAEP</span>(<span style="color:#a6e22e">hash</span>, <span style="color:#a6e22e">rands</span>, <span style="color:#a6e22e">pub</span>, <span style="color:#a6e22e">msg</span>, <span style="color:#66d9ef">nil</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatalf</span>(<span style="color:#e6db74">&#34;Failed encrypt message: %w&#34;</span>, <span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;Enc message: %x \n&#34;</span>, <span style="color:#a6e22e">encMsg</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">msg</span>, <span style="color:#a6e22e">err</span> = <span style="color:#a6e22e">rsa</span>.<span style="color:#a6e22e">DecryptOAEP</span>(<span style="color:#a6e22e">hash</span>, <span style="color:#a6e22e">rands</span>, <span style="color:#a6e22e">priv</span>, <span style="color:#a6e22e">encMsg</span>, <span style="color:#66d9ef">nil</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatalf</span>(<span style="color:#e6db74">&#34;Failed descrypt message: %s&#34;</span>, <span style="color:#a6e22e">err</span>.<span style="color:#a6e22e">Error</span>())
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;Dec message: %s \n&#34;</span>, <span style="color:#a6e22e">msg</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>]]></content>
+        </item>
         
         <item>
             <title>How This Blog Migrated to Cloudflare Pages</title>
@@ -23,13 +177,13 @@ Create Cloudflare Account Before start this journey you need to register new acc
 <p>Before start this journey you need to register new account using your email or you can sign in using apple account. You will received an email for email verication in your inbox.</p>
 <h2 id="create-new-application">Create New Application</h2>
 <p><img alt="Connect to Git" src="../images/connect-to-git.png"></p>
-<p>Go to <code>Workers &amp; Pages</code> &gt; <code>Pages</code> &gt; <code>Connect to Git</code> then you will be director to github/gitlab to configure the repos you that will you manage using cloudflare.</p>
+<p>Go to <code>Workers &amp; Pages</code> &gt; <code>Pages</code> &gt; <code>Connect to Git</code> then you will be directed to github/gitlab to configure the repos you that will you manage using cloudflare.</p>
 <p><img alt="Select Orgs" src="../images/select-orgs.png"></p>
 <p>then you will be redirected to page where you can create new application.</p>
 <p><img alt="Create New Application" src="../images/create-new-app.png"></p>
 <p>select repository you want to deploy, here i&rsquo;ll choose <code>blog</code> repo.
 <img alt="Choose Repo" src="../images/choose-repo.png"></p>
-<p>since this blog is built using <code>hugo</code> then choose <code>hugo</code> as framework preset and leave other option as default
+<p>since this blog is built using <code>hugo</code> then choose <code>hugo</code> as framework preset and leave other option as default.
 <img alt="Setting Build Configuration" src="../images/build-config.png"></p>
 <p>then click <code>Save and Deploy</code> then deployment process will be started.</p>
 <p><img alt="Deployment" src="../images/deployment.png"></p>
