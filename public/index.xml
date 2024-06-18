@@ -7,14 +7,21 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Sat, 01 Jun 2024 14:15:17 +0700</lastBuildDate>
+    <lastBuildDate>Mon, 17 Jun 2024 19:00:09 +0700</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>What I Learn Today: PostgreSQL Transaction &amp; Locking Part 1</title>
+      <link>http://localhost:1313/posts/what-i-learn-today-1/</link>
+      <pubDate>Mon, 17 Jun 2024 19:00:09 +0700</pubDate>
+      <guid>http://localhost:1313/posts/what-i-learn-today-1/</guid>
+      <description>Everything Is A Transaction Today i learned that everything in PostgreSQL runs inside a transaction. Even if you just send a simple query like SELECT * FROM table without explicitly beginning a transaction it is executed within a transaction under the hood. This approach leverages the concept of autocommit, where each individual statement is treated as a single transaction if no explicit transaction commands are given.&#xA;Behavior Of CURRENT_TIMESTAMP &amp;amp; NOW() I was very supprised to learn that CURRENT_TIMESTAMP &amp;amp; NOW() do not return the current timestamp.</description>
+    </item>
     <item>
       <title>RSA</title>
       <link>http://localhost:1313/posts/rsa/</link>
       <pubDate>Sat, 01 Jun 2024 14:15:17 +0700</pubDate>
       <guid>http://localhost:1313/posts/rsa/</guid>
-      <description>RSA (Rivest-Shamir-Adlema) is asymmetric encryption algorithm it works by encrypt plain message using public key, and descrypt using private key. public key can be shared amongs parties/services/client but the private key must be kept for server/message processor because encrypted message only can be descrypted by right pair private key. </description>
+      <description>RSA (Rivest-Shamir-Adlema) is asymmetric encryption algorithm it works by encrypt plain message using public key, and decrypt using private key. public key can be shared amongs parties/services/client but the private key must be kept for server/message processor because encrypted message only can be decrypted by right pair private key, decryption will be failed if you try to decrypt message using wrong private key.&#xA;Below is example of private and public key</description>
     </item>
     <item>
       <title>How This Blog Migrated to Cloudflare Pages</title>
