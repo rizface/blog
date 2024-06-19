@@ -64,10 +64,103 @@ BEGIN;
   SELECT * FROM tables WHERE id = 1 FOR UPDATE;
 END
 ```
-<!-- ## SELECT FOR SHARE
-## Check For Locks
+## SELECT FOR SHARE
+`SELECT FOR SHARE` is read operations that locks what it reads different from `SELECT FOR UPDATE` where only one transaction session can hold the lock. `SELECT FOR SHARE` shares the lock among transaction session that run `SELECT FOR SHARE` command too but will prevent `UPDATE`, `DELETE`, and `SELECT FOR SHARE` operations from acquire the lock. This very useful to ensuring that the data is not modified while you read it.
+
+```sql
+BEGIN;
+  SELECT * FROM tables WHERE id = x FOR SHARE
+END;
+
+BEGIN;
+  SELECT * FROM tables WHERE id = x FOR SHARE -- this query will success and get the row
+END;
+
+BEGIN;
+  SELECT * FROM tables WHERE id = x FOR UPDATE -- this will waiting untill all select for share query release the lock
+END;
+```
+<!-- ## Check For Locks -->
 ## NOWAIT
+NOWAIT is an option when execute `SELECT FOR UPDATE` when use this option the query will return error when lock is not available. This is very useful when you wont wait for lock to be available.
+
+```sql
+-- Imagine Trx 1 and 2 running simultaneously
+
+-- Trx 1
+BEGIN;
+  SELECT * FROM tables WHERE id = 1 FOR UPDATE NOWAIT;
+END;
+
+-- Trx 2
+BEGIN;
+  SELECT * FROM tables WHERE id = 2 FOR UPDATE NOWAIT;
+END;
+```
+Trx 2 wont wait for lock to be available and will return an error.
+
 ## SKIP LOCKED
+SKIP LOCKED is option used with `SELECT FOR UPDATE` to avoid waiting rows to become available. It skips locked rows and tries to lock next available rows.
+```sql
+-- imagine you have 2 seat in a air plane, and 3 users want to book a seat. the request will run simultaneously
+
+-- Trx 1
+BEGIN;
+  SELECT * FROM seats LIMIT 1 FOR UPDATE SKIP LOCKED; -- this will acquire lock for 1 one
+END;
+
+-- Trx 2
+BEGIN;
+  SELECT * FROM seats LIMIT 1 FOR UPDATE SKIP LOCKED; -- this will skip locked row, and find another one
+END;
+
+-- Trx 3
+BEGIN;
+  SELECT * FROM seats LIMIT 1 FOR UPDATE SKIP LOCKED; -- this will skip locked row, and find another one
+END;
+```
+When the session tries to find available lock and not found, the query will return 0 rows and not considered as error.
 ## Isolation Level
-## Deadlock
-## Advisory Locks --> -->
+Isolation Level is the way PostgreSQL isolates one transaction from others, as we know the transaction will always get latest update of tables even if other transaction session commit the changes. This is very useful when you need to process a constrant snapshot, the isolation level consists of 3 types:
+- READ COMMIITED, this is the default isoaltion level postgresql uses, transaction started with this isolation level will always get a latest update of tables even if the changes committed by another transaction session.
+```sql
+-- Trx 1 and 2 will run simultaneously
+-- imagine you have 2 rows in tables
+
+-- Trx 1
+BEGIN;
+  SELECT COUNT(id) FROM tables; -- will return 2
+  -- few moment before run second query (deletion of id 1 in proggress)
+  SELECT COUNT(id) FROM tables; -- will return 1
+END;
+
+BEGIN;
+  DELETE FROM tables WHERE id = 1;
+  SELECT COUNT(id) FROM tables; -- will return 1
+END;
+```
+The second query in Trx 1 will return 1 because it get updated snapshot everytime changes happens in database
+
+- REPEATABLE READ, when start a transaction using this level of isolation the transactiol will get constant snapshot and wont get latest update of snapshot when changes happens.
+```sql
+-- Trx 1 and 2 will run simultaneously
+-- imagine you have 2 rows in tables
+
+-- Trx 1
+BEGIN TRANSACTION ISOLATION LEVEL REPEATABLE READ;
+  SELECT COUNT(id) FROM tables; -- will return 2
+  -- few moment before run second query (deletion of id 1 in proggress)
+  SELECT COUNT(id) FROM tables; -- will return 2
+END;
+
+BEGIN TRANSACTION ISOLATION LEVEL REPEATABLE READ;
+  DELETE FROM tables WHERE id = 1;
+  SELECT COUNT(id) FROM tables; -- will return 1
+END;
+```
+second query in Trx 1 also return 2 because the transaction dont get an updated snapshot.
+
+- READ UNCOMMITED, when a transaction is started using this isolation level postgresql silenty use `READ COMMITTED` level.
+
+<!-- ## Deadlock
+## Advisory Locks -->

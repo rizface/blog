@@ -14,7 +14,7 @@
       <link>http://localhost:1313/posts/what-i-learn-today-1/</link>
       <pubDate>Mon, 17 Jun 2024 19:00:09 +0700</pubDate>
       <guid>http://localhost:1313/posts/what-i-learn-today-1/</guid>
-      <description>Everything Is A Transaction Today i learned that everything in PostgreSQL runs inside a transaction. Even if you just send a simple query like SELECT * FROM table without explicitly beginning a transaction it is executed within a transaction under the hood. This approach leverages the concept of autocommit, where each individual statement is treated as a single transaction if no explicit transaction commands are given.&#xA;Behavior Of CURRENT_TIMESTAMP &amp;amp; NOW() I was very supprised to learn that CURRENT_TIMESTAMP &amp;amp; NOW() do not return .</description>
+      <description>Everything Is A Transaction Today i learned that everything in PostgreSQL runs inside a transaction. Even if you just send a simple query like SELECT * FROM table without explicitly beginning a transaction it is executed within a transaction under the hood. This approach leverages the concept of autocommit, where each individual statement is treated as a single transaction if no explicit transaction commands are given.&#xA;Behavior Of CURRENT_TIMESTAMP &amp;amp; NOW() I was very supprised to learn that CURRENT_TIMESTAMP &amp;amp; NOW() do not return the current timestamp.</description>
     </item>
   </channel>
 </rss>
