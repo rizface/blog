@@ -162,5 +162,28 @@ second query in Trx 1 also return 2 because the transaction dont get an updated 
 
 - READ UNCOMMITED, when a transaction is started using this isolation level postgresql silenty use `READ COMMITTED` level.
 
-<!-- ## Deadlock
-## Advisory Locks -->
+## Deadlock
+Deadlock is a condition where more than 1 transactions waiting for each other to release a locks.
+```sql
+-- Trx 1
+BEGIN;
+  SELECT * FROM tables WHERE id = 1 FOR UPDATE;
+  SELECT * FROM tables WHERE id = 2 FOR UPDATE;
+END;
+
+-- Trx 2
+BEGIN;
+  SELECT * FROM tables WHERE id = 2 FOR UPDATE;
+  SELECT * FROM tables WHERE id = 1 FOR UPDATE;
+END;
+```
+Imagine those transactions run simultaneously they will wait for each other to release locks which never happens, this condition will produced a deadlock error.
+
+## Advisory Locks
+Advisory Lock difference from Transaction Lock. Transaction Lock is locks a table rows while Advisory Lock is locks a number, locked number wont be released with END/ROLLBACK/COMMIT command because it is not part of transaction session. This is very useful when you want to implement election to determine which node going to be a leader.
+
+```sql
+SELECT pg_advisory_lock(1); -- will lock `1`
+SELECT pg_advisory_lock(1); -- will waiting for others to release the lock for `1`
+select pg_try_advisory_lock(1); -- will skip if `1` already locked by others
+```

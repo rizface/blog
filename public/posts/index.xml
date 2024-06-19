@@ -152,9 +152,26 @@ Behavior Of CURRENT_TIMESTAMP &amp;amp; NOW() I was very supprised to learn that
 <ul>
 <li>READ UNCOMMITED, when a transaction is started using this isolation level postgresql silenty use <code>READ COMMITTED</code> level.</li>
 </ul>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-]]></content>
+<h2 id="deadlock">Deadlock</h2>
+<p>Deadlock is a condition where more than 1 transactions waiting for each other to release a locks.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#75715e">-- Trx 1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">BEGIN</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> tables <span style="color:#66d9ef">WHERE</span> id <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> <span style="color:#66d9ef">FOR</span> <span style="color:#66d9ef">UPDATE</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> tables <span style="color:#66d9ef">WHERE</span> id <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span> <span style="color:#66d9ef">FOR</span> <span style="color:#66d9ef">UPDATE</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">END</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- Trx 2
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">BEGIN</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> tables <span style="color:#66d9ef">WHERE</span> id <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span> <span style="color:#66d9ef">FOR</span> <span style="color:#66d9ef">UPDATE</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> tables <span style="color:#66d9ef">WHERE</span> id <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> <span style="color:#66d9ef">FOR</span> <span style="color:#66d9ef">UPDATE</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">END</span>;
+</span></span></code></pre></div><p>Imagine those transactions run simultaneously they will wait for each other to release locks which never happens, this condition will produced a deadlock error.</p>
+<h2 id="advisory-locks">Advisory Locks</h2>
+<p>Advisory Lock difference from Transaction Lock. Transaction Lock is locks a table rows while Advisory Lock is locks a number, locked number wont be released with END/ROLLBACK/COMMIT command because it is not part of transaction session. This is very useful when you want to implement election to determine which node going to be a leader.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> pg_advisory_lock(<span style="color:#ae81ff">1</span>); <span style="color:#75715e">-- will lock `1`
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> pg_advisory_lock(<span style="color:#ae81ff">1</span>); <span style="color:#75715e">-- will waiting for others to release the lock for `1`
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">select</span> pg_try_advisory_lock(<span style="color:#ae81ff">1</span>); <span style="color:#75715e">-- will skip if `1` already locked by others
+</span></span></span></code></pre></div>]]></content>
         </item>
         
         <item>
