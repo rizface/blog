@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Mon, 17 Jun 2024 19:00:09 +0700</lastBuildDate>
+    <lastBuildDate>Sat, 22 Jun 2024 15:17:50 +0700</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>What I Learn Today 2: PostgreSQL VACUUM</title>
+      <link>http://localhost:1313/posts/what-i-learn-today-2/</link>
+      <pubDate>Sat, 22 Jun 2024 15:17:50 +0700</pubDate>
+      <guid>http://localhost:1313/posts/what-i-learn-today-2/</guid>
+      <description>Vacuum is a command of PostgreSQL that can be used for garbage collection and analyze a database. Vacuum will visit the pages then track and find the dead rows and mark them as free space that can be use later for new rows data. Dead Rows can come from deleted rows or copied of updated rows because when you update a row, transaction will not overwrite the row but make a copy of them to use later if the transaction failed.</description>
+    </item>
     <item>
       <title>What I Learn Today: PostgreSQL Transaction &amp; Locking Part 1</title>
       <link>http://localhost:1313/posts/what-i-learn-today-1/</link>
